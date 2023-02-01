@@ -1,31 +1,37 @@
+/**
+ * @file main.cpp
+ * @author Nilusink
+ * @brief main file for the project
+ * @version 0.1
+ * @date 2023-02-01
+ * 
+ * @copyright Copyright FrenchBakery (c) 2023
+ * 
+ */
+#include <drivers/tiramisu/grepper/grepper.hpp>
 #include <iostream>
 
-struct coord
-{
-private:
-    int z;
-
-public:
-    int x, y;
-
-    int sum(int _c)
-    {
-        return x + y + _c;
-    }
-};
-
-void myfunc(int _a)
-{
-    std::cout << _a << std::endl;
-}
 
 int main()
 {
-    std::cout << "Hello, World!" << std::endl;
+    Digital end_sensor(0);
+    Motor l_motor(0);
+    Motor r_motor(1);
+    Servo grab_servo(0);
 
-    coord mylocation;
+    Gripper gripper(grab_servo, l_motor, r_motor, end_sensor);
 
-    std::cout << mylocation.sum(85) << std::endl;
+    // tests
+    float curr_val;
+    for (;;)
+    {
+        std::cout << "servo value (cm): ";
+        std::cout.flush();
+        std::cin >> curr_val;
+        std::cout << "\n";
+
+        gripper.setClawPositionCm(curr_val);
+    }
 
     return 0;
 }
