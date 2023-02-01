@@ -30,6 +30,10 @@ Example:
 class Vec2_T
 ```
 
+## Namespaces
+If used like a class (only static functions), make it look like a **class**.
+Otherwise use a **alllowercase** style.
+
 ## Variables
 **Every** variable name (**not including defines**) should be written in **snake_case**.
 
