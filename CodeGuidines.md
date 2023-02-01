@@ -71,6 +71,8 @@ Example:
  */
 ```
 
+For **header** and **implementation** files, the corresponding file should each have the same header. The **implementation** file does **not** require the `@brief` keyword.
+
 <br>
 
 ## Functions and Classes
