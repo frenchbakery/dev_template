@@ -46,7 +46,7 @@ make <target>
  - ```shell```: opens an SSH session to the configured target host
  - ```start```: copies the files, builds the project and runs it on the target all in one command. This just invokes the first three make targets in a row.
  - ```build```: same as ```start``` but without running the binary
- - ```mount```: mounts the Wombat's file system in the "mount" folder in the project directory. This only works if sshfs is installed in the container (it isn't by default)
+ - ```mount```: mounts the Wombat's file system in the "mount" folder in the project directory.
  - ```unmount```: unmounts the Wombat's file system mounted using ```mount```
  - ```clean```: removes any object and binary files. This doesn't do anything in the container because these files are only created during compilation on the target.
 
