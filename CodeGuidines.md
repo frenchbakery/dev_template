@@ -23,16 +23,24 @@ Function names require to be written in **camelCase**, where the **first letter*
 Class name should be written in **PascalCase**. (*camelCase* with **first letter capitalized**)
 
 ## Types
-Similarly to **Classes**, Types should be written in **PascalCase** with an added **_T** at the end.
+Types should be written in **snake_case**, with an added **_t** at the end.
 
 Example:
 ```cpp
-class Vec2_T
+using my_number_t = double;
 ```
 
+This also includes structures whose primary use is a simple data container:
+```cpp
+struct coord_t
+{
+    int x, y, z;
+}
+
+```
 ## Namespaces
 If used like a class (only static functions), make it look like a **class**.
-Otherwise use a **alllowercase** style.
+Otherwise use a **snake_case** style, though it is preferred to use short namespace names with only one word.
 
 ## Variables
 **Every** variable name (**not including defines**) should be written in **snake_case**.
@@ -110,11 +118,12 @@ If possile Every library for written should be sepperated into a header (`.hpp`)
 <br>
 
 ## Includes
-For every include of files that have been written for **this** project, `""` should be used.
+For every include of files that have been written for **this** project, `""` should be used, even if the path is relative to the src folder and not relative to the file.
 
 Example:
 ```cpp
 #include "utils.hpp"
+#include "hw/drivers/gripper.hpp"
 ```
 
 <br>
@@ -126,6 +135,8 @@ Example:
 #include <iostream>
 ```
 
+<br>
+
 ## Curly Brackets
 Curly brackets, as in **function or class implementations** should be placed at the next line.
 
@@ -135,4 +146,32 @@ float my_test_func(float a, float b)
 {
     return a * b;
 }
+```
+
+<br>
+
+## Classes and Structures
+
+When the primary purpose of an object is to compute complex operations or implement advanced functionality in the form of member functions, **class** should be used:
+
+```cpp
+class MyClass
+{
+    int myfunc1(...);
+    int myfunc2(...);
+    int myfunc3(...);
+    int myfunc4(...);
+    .
+    .
+};
+```
+
+When the primary purpose of an object is to store **simple** data grouped as one "type", **struct** should be used:
+
+```cpp
+struct vector_t
+{
+    double x, y, z;
+    int len();
+};
 ```
